@@ -1100,6 +1100,8 @@ function CensusPlus_StartCensus()
 		for v=1,10000 do -- Warpman Random alternative
 		    local letters2 = GetRandomLetter()..GetRandomLetter();
 		    local job = {m_Letter=letters2};
+			      local job = {m_Letter=letters2, m_MinLevel = 1, m_MaxLevel = MAX_CHARACTER_LEVEL};
+
 		    InsertJobIntoQueue(job);
 		end
 
