@@ -426,7 +426,9 @@ end
 local function GetNameLetters()
 	return { "a", "b", "c", "d", "e", "f", "g", "i", "o", "p", "r", "s", "t", "u", "y" };
 end
-
+local function GetRandomLetter() 
+	return ({ "e", "t", "a", "o", "i", "n", "s", "r", "h", "d", "l", "u", "c", "m", "f","y","w","g","p","b","v","k","x","q","j","z" })[math.random(26)]
+end
 ---------------------------------------------------------------------------------
 --
 -- Register with Cosmos UI
@@ -1095,14 +1097,11 @@ function CensusPlus_StartCensus()
         --  Modified job listing, let's go in 5 level increments
         --
         local counter = 0;
-        for outer = 0, 10, 1 do
-            local job = {m_MinLevel=outer*5+1, m_MaxLevel=outer*5+5};
-            InsertJobIntoQueue(job);
-        end
-        local job = {m_MinLevel=56, m_MaxLevel=59};
-        InsertJobIntoQueue(job);
-        job = {m_MinLevel=60, m_MaxLevel=60};
-        InsertJobIntoQueue(job);
+		for v=1,10000 do -- Warpman Random alternative
+		    local letters2 = GetRandomLetter()..GetRandomLetter();
+		    local job = {m_Letter=letters2};
+		    InsertJobIntoQueue(job);
+		end
 
 		g_IsCensusPlusInProgress = true;
 		g_WaitingForWhoUpdate = false;
